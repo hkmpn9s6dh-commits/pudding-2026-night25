@@ -195,7 +195,7 @@ export function renderWall(
     svg.appendChild(t);
   });
 
-  // 图例：一条 0→92 的渐变
+  // 图例：0→92 的渐变 + 「无记录」样例
   const defs = document.createElementNS(ns, "defs");
   const grad = document.createElementNS(ns, "linearGradient");
   grad.setAttribute("id", "nscale");
@@ -207,27 +207,37 @@ export function renderWall(
   });
   defs.appendChild(grad);
   svg.appendChild(defs);
-  const lw2 = width - 220;
+
+  const lx = width - 330;
   const bar = document.createElementNS(ns, "rect");
-  bar.setAttribute("x", String(lw2));
+  bar.setAttribute("x", String(lx));
   bar.setAttribute("y", String(height - 13));
-  bar.setAttribute("width", "120");
-  bar.setAttribute("height", "8");
+  bar.setAttribute("width", "110");
+  bar.setAttribute("height", "9");
   bar.setAttribute("fill", "url(#nscale)");
   svg.appendChild(bar);
-  const lz = document.createElementNS(ns, "text");
-  lz.setAttribute("class", "year-tick");
-  lz.setAttribute("x", String(lw2 - 6));
-  lz.setAttribute("y", String(height - 5));
-  lz.setAttribute("text-anchor", "end");
-  lz.textContent = "0";
-  svg.appendChild(lz);
-  const lh = document.createElementNS(ns, "text");
-  lh.setAttribute("class", "year-tick");
-  lh.setAttribute("x", String(lw2 + 126));
-  lh.setAttribute("y", String(height - 5));
-  lh.textContent = lang === "zh" ? "92 夜" : "92 nights";
-  svg.appendChild(lh);
+
+  const mk = (x: number, txt: string, anchor: string) => {
+    const t = document.createElementNS(ns, "text");
+    t.setAttribute("class", "year-tick");
+    t.setAttribute("x", String(x));
+    t.setAttribute("y", String(height - 5));
+    t.setAttribute("text-anchor", anchor);
+    t.textContent = txt;
+    svg.appendChild(t);
+  };
+  mk(lx - 7, "0", "end");
+  mk(lx + 117, lang === "zh" ? "92 夜" : "92 nights", "start");
+
+  const sw = document.createElementNS(ns, "rect");
+  sw.setAttribute("x", String(lx + 196));
+  sw.setAttribute("y", String(height - 13));
+  sw.setAttribute("width", "11");
+  sw.setAttribute("height", "9");
+  sw.setAttribute("fill", "#e7e0d1");
+  sw.setAttribute("stroke", "rgba(20,23,28,.4)");
+  svg.appendChild(sw);
+  mk(lx + 213, lang === "zh" ? "无记录" : "no record", "start");
 
   const band = document.createElementNS(ns, "rect");
   band.setAttribute("class", "band");

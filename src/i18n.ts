@@ -45,7 +45,7 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     on_cap: "",
     wall_title: "Every summer since 1975, one window per city",
     wall_dek:
-      "Each row is a city, each column a summer. The brighter the window, the more nights that summer failed to fall below 25 °C. Dark blue is a summer that never crossed the line. Blank means the thermometer was not recording, or recorded too little to count.",
+      "Each row is a city, each column a summer (the three months whose mean minimum was highest in 1991–2020; southern cities therefore use December–February, credited to the year of January). The brighter the window, the more nights that summer failed to fall below 25 °C. Dark blue is a summer that never crossed the line. Blank means the thermometer was not recording, or recorded too little to count.",
     wall_cap: "Scroll to move through the record. Hover any window for the exact count.",
     step0: "Start at 1975. Bright windows are rare. A summer with a few 25-degree nights was still something people mentioned.",
     step1: `By the 2020s the bright windows have spread — unevenly. Across the ${S.nCities} cities the average summer went from ${f1(S.nightsThen)} nights above 25 °C to ${f1(S.nightsNow)}.`,
@@ -58,7 +58,7 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     nd_title: "What the average hides",
     nd_dek: "",
     nd_cap: "",
-    nd_p1: `${S.rose} cities added five or more nights per summer. ${S.flat} barely moved — some because they are already pressed against the ceiling, some because they never reached it. ${S.fell} lost nights: Guangzhou fell from 61 to 50, Rio de Janeiro from 40 to 33.`,
+    nd_p1: `${S.rose} cities added five or more nights per summer. ${S.flat} barely moved — some because they are already pressed against the ceiling, some because they never reached it. ${S.fell} lost nights — Guangzhou fell from 61 to 50, Rio de Janeiro from 40 to 33. Their records are complete, so this is not a gap in the data; I have no mechanism to offer, and I would rather say so than invent one.`,
     nd_p2: `The average also hides something that surprised me: the nights did not warm faster than the days. Summer afternoons across these cities warmed by ${S.tmaxSlope.toFixed(2)} °C per decade; nights by ${S.tminSlope.toFixed(2)}. In ${S.nightsFaster} of ${S.nCities} cities the night trend was the steeper one. A hotter night is a different kind of harm, not automatically a faster one.`,
     nd_p3: `And there is a floor under the floor. A summer has ${S.ceiling} nights. ${S.delhi.en} already spends ${S.delhi.now} of them above the line; it can add ${S.ceiling - S.delhi.now} before it runs out of nights. ${S.karachi.en} was at ${S.karachi.then} and still found ${S.karachi.now - S.karachi.then} more.`,
     miss_title: "The eight cities we cannot measure",
@@ -101,7 +101,7 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     on_cap: "",
     wall_title: "从 1975 年起，每座城每年一扇窗",
     wall_dek:
-      "一行一座城，一列一个夏天。窗越亮，那个夏天里没跌破 25 °C 的夜越多。深蓝是整夏都没越过那条线。空白是温度计那天没记，或记的天数不够。",
+      "一行一座城，一列一个夏天（取 1991–2020 年夜间最低气温最高的连续三个月；南半球因此是 12–2 月，记在次年）。窗越亮，那个夏天里没跌破 25 °C 的夜越多。深蓝是整夏都没越过那条线。空白是温度计那天没记，或记的天数不够。",
     wall_cap: "往下滚，整面墙跟着走。鼠标停在任意一扇窗上，能看到那一年的准确夜数。",
     step0: "先看 1975 年。亮窗很少。一个夏天里有几夜超过 25 °C，还是人们会提起的事。",
     step1: `到 2020 年代，亮窗铺开了 —— 但不均匀。这 ${S.nCities} 座城市平均，从每夏 ${f1(S.nightsThen)} 夜变成 ${f1(S.nightsNow)} 夜。`,
@@ -114,12 +114,12 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     nd_title: "平均数藏起来的东西",
     nd_dek: "",
     nd_cap: "",
-    nd_p1: `${S.rose} 座城市每夏多出五夜以上；${S.flat} 座几乎没动 —— 有的已经顶到天花板，有的从来没够到过；${S.fell} 座少了：广州从 61 夜掉到 50 夜，里约从 40 夜掉到 33 夜。`,
+    nd_p1: `${S.rose} 座城市每夏多出五夜以上；${S.flat} 座几乎没动 —— 有的已经顶到天花板，有的从来没够到过；${S.fell} 座少了 —— 广州从 61 夜掉到 50 夜，里约从 40 夜掉到 33 夜。这两城的记录是完整的，所以不是数据缺口；我拿不出机制解释，宁可这么写，也不编。`,
     nd_p2: `平均数还藏了一件让我意外的事：夜并没有比昼暖得更快。这些城市的夏季午后每十年升 ${S.tmaxSlope.toFixed(2)} °C，夜里升 ${S.tminSlope.toFixed(2)} °C；${S.nCities} 座里有 ${S.nightsFaster} 座是夜更陡。更热的夜是另一种伤害，不一定来得更快。`,
     nd_p3: `而且底板下面还有一层：一个夏天只有 ${S.ceiling} 夜。${S.delhi.zh} 已经有 ${S.delhi.now} 夜在线上，最多还能再加 ${S.ceiling - S.delhi.now} 夜就到头。${S.karachi.zh} 原本 ${S.karachi.then} 夜，居然还找出了 ${S.karachi.now - S.karachi.then} 夜。`,
     miss_title: "量不到的八座城",
     miss_dek:
-      "它们都在全球最大的三十座城市里，却没有一个站点能撑起五十年的逐夜记录。它们不是凉的那几座。拉合尔、达卡、加尔各答、拉各斯、金沙萨、雅加达、墨西哥城、圣保罗 —— 热夜早已是常态、而下一个十亿城市人口要住进去的地方。",
+      "它们都在全球最大的三十座城市里，却没有一个站点能撑起五十年的逐夜记录。它们不是凉的那几座。拉合尔、达卡、加尔各答、拉各斯、金沙萨、雅加达、墨西哥城、圣保罗 —— 八座全在热带或亚热带 —— 正是下一个十亿城市人口要住进去的纬度。",
     miss_note:
       "站点入选条件：1975 年前开始记录、2023 年之后仍在报、距市中心 45 km 以内、且有至少 35 个夏天满足「90% 的天数在场」。上面这八座是卡在最后一条，不是卡在距离。",
     body_title: "25 °C 对身体做了什么",
