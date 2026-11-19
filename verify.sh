@@ -26,6 +26,10 @@ step "3/6 字体子集核对"
 $PY scripts/subset_fonts.py --check || { echo "字体子集缺字（改过文案就重跑 scripts/subset_fonts.py）"; rc=1; }
 
 step "4/6 构建"
+if [ ! -d node_modules ]; then
+  echo "首次运行，装依赖（约 20 s）"
+  npm install --no-audit --no-fund --silent || { echo "装依赖失败"; rc=1; }
+fi
 npm run build --silent || { echo "构建失败"; rc=1; }
 
 step "5/6 数据与产物断言"
