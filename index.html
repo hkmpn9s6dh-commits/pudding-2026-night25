@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Twenty-Five Degrees — a data story about nights that stopped cooling</title>
+<meta name="description" content="Thirty of the world's biggest cities, fifty years of nightly minimum temperatures, and the line at 25°C that decides whether a summer night lets your body recover." />
+<meta property="og:title" content="Twenty-Five Degrees" />
+<meta property="og:description" content="The night has a floor. In the world's biggest cities, it is rising." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230e1116'/%3E%3Crect x='6' y='14' width='6' height='12' fill='%23c8402c'/%3E%3Crect x='13' y='9' width='6' height='17' fill='%23e8a33d'/%3E%3Crect x='20' y='5' width='6' height='21' fill='%23ffd08a'/%3E%3C/svg%3E" />
+<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+<a class="skip" href="#lede" data-i18n="skip">Skip to the story</a>
+
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <span class="masthead__kicker" data-i18n="kicker">A data story · 2026</span>
+    <button id="lang" class="lang" type="button" aria-label="Switch language">
+      <span class="lang__on" data-lang="en">EN</span><span class="lang__sep">/</span><span class="lang__off" data-lang="zh">中文</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" id="hero">
+    <p class="hero__eyebrow" data-i18n="hero_eyebrow">The night has a floor</p>
+    <h1 class="hero__title">25<span class="deg" aria-hidden="true"></span><span class="sr">°</span></h1>
+    <p class="hero__sub" data-i18n="hero_sub">Fifty years of summer nights in the thirty largest cities on Earth — and the line at 25 °C that decides whether a body gets to rest.</p>
+    <p class="hero__byline" data-i18n="byline">Data: NOAA GSOD · 30 cities · 1975–2024</p>
+  </section>
+
+  <section class="lede wrap" id="lede">
+    <p class="lede__p" data-i18n="lede1"></p>
+    <p class="lede__p" data-i18n="lede2"></p>
+    <p class="lede__p lede__p--small" data-i18n="lede3"></p>
+  </section>
+
+  <section class="panel panel--night" id="one-night">
+    <div class="wrap wrap--wide">
+      <h2 class="h2" data-i18n="on_title">One summer, one city, ninety-two nights</h2>
+      <p class="p" data-i18n="on_dek"></p>
+      <figure class="fig">
+        <div id="strip" class="pairstrip" role="img" aria-labelledby="strip-cap"></div>
+        <figcaption id="strip-cap" class="cap" data-i18n="on_cap"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wall" id="wall">
+    <div class="wrap">
+      <h2 class="h2" data-i18n="wall_title">Every summer since 1975, one window per city</h2>
+      <p class="p" data-i18n="wall_dek"></p>
+    </div>
+    <div class="scrolly">
+      <div class="scrolly__graphic">
+        <div class="wallbox">
+          <div id="wallchart" class="wallchart" role="img" aria-labelledby="wall-cap"></div>
+          <p id="wall-cap" class="cap cap--night" data-i18n="wall_cap"></p>
+        </div>
+      </div>
+      <div class="scrolly__steps">
+        <div class="step" data-step="0"><p data-i18n="step0"></p></div>
+        <div class="step" data-step="1"><p data-i18n="step1"></p></div>
+        <div class="step" data-step="2"><p data-i18n="step2"></p></div>
+        <div class="step" data-step="3"><p data-i18n="step3"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel panel--paper" id="more-nights">
+    <div class="wrap wrap--wide">
+      <h2 class="h2" data-i18n="more_title">How many more nights</h2>
+      <p class="p" data-i18n="more_dek"></p>
+      <figure class="fig fig--wide">
+        <div id="slope" class="slope"></div>
+        <figcaption class="cap" data-i18n="more_cap"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="panel panel--night" id="nights-vs-days">
+    <div class="wrap wrap--narrow">
+      <h2 class="h2" data-i18n="nd_title">What the average hides</h2>
+      <p class="p" data-i18n="nd_p1"></p>
+      <p class="p" data-i18n="nd_p2"></p>
+      <p class="p" data-i18n="nd_p3"></p>
+    </div>
+  </section>
+
+  <section class="panel panel--paper" id="missing">
+    <div class="wrap">
+      <h2 class="h2" data-i18n="miss_title">The cities we cannot measure</h2>
+      <p class="p" data-i18n="miss_dek"></p>
+      <ul id="missing-list" class="misslist"></ul>
+      <p class="p p--small" data-i18n="miss_note"></p>
+    </div>
+  </section>
+
+  <section class="panel panel--paper" id="body">
+    <div class="wrap wrap--narrow">
+      <h2 class="h2" data-i18n="body_title">What 25 °C does to a body</h2>
+      <p class="p" data-i18n="body1"></p>
+      <p class="p" data-i18n="body2"></p>
+      <p class="p" data-i18n="body3"></p>
+    </div>
+  </section>
+
+  <section class="panel panel--paper" id="method">
+    <div class="wrap wrap--narrow">
+      <h2 class="h2 h2--small" data-i18n="method_title">How this was made</h2>
+      <div id="method-body" class="method"></div>
+      <ol class="sources">
+        <li>NOAA National Centers for Environmental Information, <i>Global Summary of the Day</i> (GSOD) and <i>ISD station history</i>, retrieved November 2026.</li>
+        <li>World Meteorological Organization “tropical night” (Tmin ≥ 20 °C); Yangtze Delta meteorological services use 25 °C — the definition adopted here.</li>
+        <li><i>Effects of Heatwaves and Tropical Nights on Sleep in Middle-Aged and Older Adults: A Scoping Review</i>, Clocks &amp; Sleep 8(3):37, 2026.</li>
+        <li>Obradovich et al., “Nighttime temperature and human sleep loss in a changing climate”, <i>Science Advances</i> 3(5), 2017.</li>
+        <li>UN DESA, <i>World Urbanization Prospects 2018</i> — the thirty-city frame.</li>
+      </ol>
+      <p class="p p--small" data-i18n="ai_note"></p>
+      <p class="p p--small"><a id="repo" href="#" data-i18n="repo_link">Source, data and raw extracts</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p data-i18n="foot">Built in November 2026. Numbers recomputed from the raw station files by <code>scripts/verify.py</code>; every figure on this page is asserted before publish.</p>
+</footer>
+
+<div id="tip" class="tip" role="status" aria-live="polite"></div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
