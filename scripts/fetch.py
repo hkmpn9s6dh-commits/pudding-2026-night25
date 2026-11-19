@@ -153,6 +153,10 @@ def main():
         with ThreadPoolExecutor(max_workers=24) as ex:
             for year, path, err in ex.map(fetch_year, tasks):
                 results[year] = (path, err)
+        fails = sum(1 for _, err in results.values() if err == "http")
+        if fails > len(results) * 0.2:
+            raise SystemExit(f"取数大面积失败（{fails}/{len(results)} 个 HTTP 错误）——"
+                             f"像是限流，不是'没有数据'。停在这里，别把空数据写进 extract。")
         days, manifest = [], {}
         for y in range(YEAR_FROM, YEAR_TO + 1):
             path, err = results[y]

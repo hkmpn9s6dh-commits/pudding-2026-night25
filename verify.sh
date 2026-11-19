@@ -15,7 +15,10 @@ rc=0
 step() { printf '\n=== %s ===\n' "$1"; }
 
 step "1/6 取数（GSOD，按年一文件）"
-if [ "${1:-}" = "--no-fetch" ]; then echo "跳过"; else
+if [ "${1:-}" = "--no-fetch" ]; then
+  echo "跳过全量重下，改抽查 12 个（NOAA 会对全量重下限流）"
+  $PY scripts/fetch_check.py --n 12 || { echo "抽查失败（取数路径不通）"; rc=1; }
+else
   $PY scripts/fetch.py || { echo "取数失败"; rc=1; }
 fi
 
