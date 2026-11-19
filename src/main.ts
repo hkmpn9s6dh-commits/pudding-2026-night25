@@ -64,7 +64,8 @@ function applyLang(next: Lang, rerender = true) {
     const key = el.dataset.i18n as string;
     const v = dict[key];
     if (v === undefined) return;
-    el.textContent = v;
+    if (el.dataset.i18nHtml === "1") el.innerHTML = v;
+    else el.textContent = v;
   });
   const btn = document.getElementById("lang") as HTMLButtonElement;
   btn.dataset.mode = lang;
@@ -105,7 +106,7 @@ function renderAll() {
       : `${hero.city_en}. Summer ${p.then.year}: ${n(p.then.days)} nights. Summer ${p.now.year}: ${n(p.now.days)} nights.`;
   }
   const miss = document.getElementById("missing-list") as HTMLElement;
-  miss.innerHTML = S.missing.map((m) => {
+  miss.innerHTML = S.missing.slice().sort((a, b) => (b.usable ?? 0) - (a.usable ?? 0)).map((m) => {
     const name = lang === "zh" ? m.city_zh : m.city_en;
     const why = lang === "zh"
       ? m.reason.replace("no airport station with a 1975–2024 record within 45 km", "45 km 内没有 1975–2024 年连续记录的站点")

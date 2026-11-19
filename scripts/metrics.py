@@ -66,7 +66,7 @@ def main():
         st = rec["station"]
         if not st:
             missing.append(dict(city_en=rec["city_en"], city_zh=rec["city_zh"],
-                                country=rec["country"],
+                                country=rec["country"], usable=0,
                                 reason="no airport station with a 1975–2024 record within 45 km"))
             continue
         months = rec["season"]
@@ -87,7 +87,7 @@ def main():
         good = [r for r in years if r["nights"] is not None]
         if len(good) < MIN_YEARS:
             missing.append(dict(city_en=rec["city_en"], city_zh=rec["city_zh"],
-                                country=rec["country"],
+                                country=rec["country"], usable=len(good),
                                 reason=f"only {len(good)} usable summers"))
             continue
         xs = [r["y"] for r in good]

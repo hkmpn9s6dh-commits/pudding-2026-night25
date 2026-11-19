@@ -31,7 +31,7 @@ export type City = {
   trend_tmax: number;
 };
 
-export type Missing = { city_en: string; city_zh: string; country: string; reason: string };
+export type Missing = { city_en: string; city_zh: string; country: string; reason: string; usable?: number };
 
 export type Series = {
   meta: {
@@ -51,7 +51,7 @@ const label = (c: City, lang: Lang) => (lang === "zh" ? c.city_zh : c.city_en);
 
 /* ---------- colour ---------- */
 const STOPS: [number, string][] = [
-  [0, "#161c26"],
+  [0, "#243350"],
   [0.08, "#22304a"],
   [0.28, "#3b3f63"],
   [0.48, "#7a4a4a"],
@@ -141,7 +141,7 @@ export function renderWall(
   const width = Math.max(320, el.clientWidth || 900);
   const labelW = width < 700 ? 88 : 148;
   const rowH = width < 700 ? 15 : 18;
-  const height = cities.length * rowH + 40;
+  const height = cities.length * rowH + 58;
   const cellW = (width - labelW - 4) / years.length;
   const maxN = Math.max(...cities.map((c) => c.max_nights), 1);
   const ns = "http://www.w3.org/2000/svg";
@@ -171,8 +171,9 @@ export function renderWall(
       rect.setAttribute("width", Math.max(1, cellW - 0.7).toFixed(1));
       rect.setAttribute("height", String(rowH - 2.4));
       const isMissing = r.nights === null;
-      rect.setAttribute("fill", isMissing ? "#cdc4b2" : nightColor(Math.sqrt((r.nights as number) / maxN)));
+      rect.setAttribute("fill", isMissing ? "#e7e0d1" : nightColor(Math.sqrt((r.nights as number) / maxN)));
       rect.setAttribute("class", "cell" + (isMissing ? " cell--missing" : ""));
+      if (isMissing) rect.setAttribute("stroke", "rgba(20,23,28,.10)");
       rect.dataset.city = c.city_en;
       rect.dataset.year = String(r.y);
       rect.dataset.nights = r.nights === null ? "" : String(r.nights);
@@ -188,7 +189,7 @@ export function renderWall(
     const t = document.createElementNS(ns, "text");
     t.setAttribute("class", "year-tick");
     t.setAttribute("x", String(x + cellW / 2));
-    t.setAttribute("y", String(height - 6));
+    t.setAttribute("y", String(height - 30));
     t.setAttribute("text-anchor", "middle");
     t.textContent = String(yr);
     svg.appendChild(t);
@@ -206,10 +207,10 @@ export function renderWall(
   });
   defs.appendChild(grad);
   svg.appendChild(defs);
-  const lw2 = width - 150;
+  const lw2 = width - 220;
   const bar = document.createElementNS(ns, "rect");
   bar.setAttribute("x", String(lw2));
-  bar.setAttribute("y", String(height - 9));
+  bar.setAttribute("y", String(height - 13));
   bar.setAttribute("width", "120");
   bar.setAttribute("height", "8");
   bar.setAttribute("fill", "url(#nscale)");
@@ -217,14 +218,14 @@ export function renderWall(
   const lz = document.createElementNS(ns, "text");
   lz.setAttribute("class", "year-tick");
   lz.setAttribute("x", String(lw2 - 6));
-  lz.setAttribute("y", String(height - 2));
+  lz.setAttribute("y", String(height - 5));
   lz.setAttribute("text-anchor", "end");
   lz.textContent = "0";
   svg.appendChild(lz);
   const lh = document.createElementNS(ns, "text");
   lh.setAttribute("class", "year-tick");
   lh.setAttribute("x", String(lw2 + 126));
-  lh.setAttribute("y", String(height - 2));
+  lh.setAttribute("y", String(height - 5));
   lh.textContent = lang === "zh" ? "92 夜" : "92 nights";
   svg.appendChild(lh);
 

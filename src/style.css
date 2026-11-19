@@ -138,7 +138,7 @@ body[data-lang="zh"] .p, body[data-lang="zh"] .lede__p { line-height: 1.85; }
 .wallchart .row-label { font-size: 11.5px; fill: var(--muted); }
 .wallchart .year-tick { font-size: 10px; fill: var(--muted); }
 .wallchart .cell { transition: opacity .25s ease, transform .25s ease; }
-.wallchart .cell.is-dim { opacity: .58; }
+.wallchart .cell.is-dim { opacity: .7; }
 .wallchart .cell.is-focus { transform: scale(1.35); transform-origin: center; }
 .wallchart .row.is-focus .row-label { fill: var(--ink); font-weight: 600; }
 .scrolly__steps { padding: 8vh 0 30vh; }
@@ -184,6 +184,9 @@ body[data-lang="zh"] .p, body[data-lang="zh"] .lede__p { line-height: 1.85; }
 /* footer + tooltip */
 .foot { padding: 44px 0 80px; font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--line); }
 a { color: inherit; text-underline-offset: 3px; }
+
+.cite { font-size: .62em; vertical-align: super; line-height: 0; }
+.cite a { color: var(--red); text-decoration: none; padding-left: 2px; }
 
 .sources { font-size: 13.5px; color: var(--muted); line-height: 1.55; padding-left: 20px; margin: 0 0 22px; }
 .sources li { margin-bottom: 7px; }

@@ -32,14 +32,14 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     hero_eyebrow: "The night has a floor",
     hero_sub:
       "Twenty-two of the world's largest cities, fifty summers of nightly minimum temperatures, and the line at 25 °C that decides whether a body gets to rest.",
-    byline: `Data: NOAA GSOD · ${S.nAttempted} cities attempted · ${S.from}–${S.to}`,
+    byline: `Data: NOAA GSOD · ${S.nAttempted} attempted · ${S.nCities} usable · ${S.from}–${S.to}`,
     lede1:
       "A hot afternoon is uncomfortable. A hot night is different. When the air stays above 25 °C, the body keeps working at the job it was supposed to do while you slept: dumping the heat it built up all day. Heart rate stays elevated. Deep sleep thins out. You wake up as tired as you went to bed.",
     lede2:
       `I wanted to know how often that happens now, and how often it used to. So I took the ${S.nAttempted} largest cities on Earth and looked for a thermometer in each one that had been recording every night since ${S.from}. ${S.nCities} had one that survived the whole record.`,
     lede3:
       "The numbers that came back do not tell one story. Some cities crossed a line they had never crossed before. Others barely moved — because there was almost no room left to move. And eight of the thirty cities could not be measured at all.",
-    on_title: "One city, two summers, fifty years apart",
+    on_title: "One city, two summers, forty-eight years apart",
     on_dek:
       "Every square is one night of summer in Cairo. In 1976 the whole season stayed under the line: the warmest night was 24.0 °C. In 2024, 76 of 91 nights never fell below 25 °C.",
     on_cap: "",
@@ -68,9 +68,9 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
       "A station was accepted only if it began by 1975, still reported in 2023 or later, sat within 45 km of the city centre, and had at least 35 summers with 90% of days present. The eight above failed on the last test, not on distance.",
     body_title: "What 25 °C does to a body",
     body1:
-      "The threshold has a history. The World Meteorological Organization's \"tropical night\" is a night that never falls below 20 °C; China's Yangtze Delta weather services, dealing with humid heat, use 25 °C instead. I used 25 °C because the question here is sleep, not frost: comfort research puts the sleeping range at 24–25 °C, and a 2026 review of 31 studies finds that nights above roughly 20–25 °C shorten total sleep, cut sleep efficiency and thin the deep stages that do the restoring.",
+      "The threshold has a history. The World Meteorological Organization's \"tropical night\" is a night that never falls below 20 °C; China's Yangtze Delta weather services, dealing with humid heat, use 25 °C instead. I used 25 °C because the question here is sleep, not frost: comfort research puts the sleeping range at 24–25 °C, and a 2026 review of 31 studies finds that nights above roughly 20–25 °C shorten total sleep, cut sleep efficiency and thin the deep stages that do the restoring.<sup class='cite'><a href='#sources'>2,3</a></sup>",
     body2:
-      "It also scales. Large sleep studies find the effect is small per night and enormous in aggregate: a slightly shorter night, for everyone, all summer. And a night that does not cool leaves the next day starting from a warmer body, which is why consecutive hot nights carry more risk than the same number of hot afternoons. Air conditioning blunts this; the cities gaining the most nights above 25 °C here are, on the whole, not the ones where air conditioning is universal.",
+      "It also scales. Large sleep studies find the effect is small per night and enormous in aggregate: a slightly shorter night, for everyone, all summer. And a night that does not cool leaves the next day starting from a warmer body, which is why consecutive hot nights carry more risk than the same number of hot afternoons.<sup class='cite'><a href='#sources'>3,4</a></sup> Air conditioning blunts this; the cities gaining the most nights above 25 °C here are, on the whole, not the ones where air conditioning is universal.",
     body3:
       "And a city that cannot measure its nights cannot plan for them. Eight of the thirty largest cities on Earth have no fifty-year nightly record at all — which is why the last chart on this page is mostly a list of names.",
     method_title: "How this was made",
@@ -88,14 +88,14 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     hero_eyebrow: "夜是有底板的",
     hero_sub:
       "全球最大城市里的二十二座，五十个夏天的夜间最低气温，以及 25 °C 那条线 —— 它决定一具身体能不能休息。",
-    byline: `数据：NOAA GSOD · 尝试 ${S.nAttempted} 城 · ${S.from}–${S.to}`,
+    byline: `数据：NOAA GSOD · 试 ${S.nAttempted} 城 · 可用 ${S.nCities} 城 · ${S.from}–${S.to}`,
     lede1:
       "热的下午只是难受，热的夜是另一回事。气温停在 25 °C 以上，身体就没法做它本该在你睡着时做的事：把白天攒下的热散掉。心率降不下来，深睡变浅。你醒来时和躺下时一样累。",
     lede2:
       `我想知道现在这事有多频繁，过去又有多频繁。于是把地球上最大的 ${S.nAttempted} 座城市列出来，去每一座里找一个温度计 —— 要求它从 ${S.from} 年起每一夜都在记。${S.nCities} 座的温度计完整活到了最后。`,
     lede3:
       "回来的数字不是同一个故事。有的城市越过了它从没越过的线；有的几乎没动 —— 因为已经没多少地方可动。还有八座城市，根本量不到。",
-    on_title: "一座城，两个夏天，隔五十年",
+    on_title: "一座城，两个夏天，隔四十八年",
     on_dek:
       "每一格是开罗夏天的一夜。1976 年整个夏天都在这条线下面：最热的一夜 24.0 °C。2024 年，九十一夜里有七十六夜没跌破 25 °C。",
     on_cap: "",
@@ -126,7 +126,7 @@ export function copy(S: Summary, lang: Lang): Record<string, string> {
     body1:
       "这条线是有来历的。世界气象组织的「热带夜」定义为夜间最低气温不低于 20 °C；中国长三角的气象部门面对湿热气候，改用 25 °C。我这里用 25 °C，因为要问的是睡觉，不是结霜：舒适睡眠的研究把卧室温度定在 24–25 °C，而 2026 年一篇汇总 31 项研究的综述发现，夜间气温超过大约 20–25 °C 就会缩短总睡眠、降低睡眠效率、压缩负责恢复的深睡阶段。",
     body2:
-      "它还会放大。大规模睡眠研究发现，单夜的效应很小，加总起来很大：每一个人的每一个夏天，夜都短了一点。而且一夜没凉下来，第二天是从一具更热的身体开始的，所以连着几个热夜比同样数量的热白天更危险。空调能挡掉一部分；而这里超过 25 °C 的夜涨得最多的城市，总体上并不是空调普及的那些。",
+      "它还会放大。大规模睡眠研究发现，单夜的效应很小，加总起来很大：每一个人的每一个夏天，夜都短了一点。而且一夜没凉下来，第二天是从一具更热的身体开始的，所以连着几个热夜比同样数量的热白天更危险。<sup class='cite'><a href='#sources'>3,4</a></sup>空调能挡掉一部分；而这里超过 25 °C 的夜涨得最多的城市，总体上并不是空调普及的那些。",
     body3:
       "还有一层：量不出自己夜里的城，也规划不了夜里。全球最大的三十座城市里，有八座根本没有五十年的逐夜记录 —— 所以这一页最后那张图，基本上只是一串名字。",
     method_title: "这份东西是怎么做出来的",
